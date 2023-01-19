@@ -1,12 +1,14 @@
+.content img {
+  width: 450px;
+}
+.descriptionBlock {
+  padding: 10px;
+}
 
-   
-    
-    .content img {
-      width: 450px;
-    }
-    .descriptionBlock{
-    padding: 10px;
-  }
-      
-    
-    
+.mainPhoto {
+  max-width: 150px;
+  border-radius: 50%;
+}
+.contact {
+  padding-left: 15px;
+}

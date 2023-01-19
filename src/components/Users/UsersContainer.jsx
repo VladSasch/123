@@ -16,7 +16,7 @@ import {
   getIsFetching,
   getPageSize,
   getTotalUsersCount,
-  getUsersSuperSeltctor,
+  getUsersSuperSelector,
 } from '../../redux/users-selectors';
 //import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -35,7 +35,6 @@ class UsersContainer extends React.Component {
   };
 
   render() {
-    console.log('Render');
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
@@ -47,9 +46,8 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-  console.log('mapStateToProps Users');
   return {
-    users: getUsersSuperSeltctor(state),
+    users: getUsersSuperSelector(state),
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),

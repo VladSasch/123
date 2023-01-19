@@ -2,7 +2,7 @@
   "name": "test-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vladsasch.github.io/123",
+  "homepage": "//vladsasch.github.io/123",
   "dependencies": {
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r  https://github.com/VladSasch/123.git",
+    "deploy": "gh-pages -d build -r https://github.com/VladSasch/123.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

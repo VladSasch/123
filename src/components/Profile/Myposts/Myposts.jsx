@@ -1,13 +1,13 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import {
   maxLengthCreator,
   requiredFeild,
-} from "../../../utils/validators/validators";
-import { Textarea } from "../../common/Formscon/FormsControls";
+} from '../../../utils/validators/validators';
+import { Textarea } from '../../common/Formscon/FormsControls';
 
-import s from "./Myposts.module.css";
-import Post from "./Post/Post";
+import s from './Myposts.module.css';
+import Post from './Post/Post';
 
 const AddNewPostForm = (props) => {
   return (
@@ -15,7 +15,7 @@ const AddNewPostForm = (props) => {
       <div>
         <Field
           component={Textarea}
-          placeholder={"My posts"}
+          placeholder={'My posts'}
           name="newPostText"
           validate={[requiredFeild, maxLengthCreator(10)]}
         />
@@ -28,13 +28,15 @@ const AddNewPostForm = (props) => {
 };
 
 const MypostsReduxForm = reduxForm({
-  form: "ProfileAddNewPostForm",
+  form: 'ProfileAddNewPostForm',
 })(AddNewPostForm);
 
 const Myposts = (props) => {
   let postsElement = [...props.posts]
     .reverse()
-    .map((p) => <Post message={p.message} likesCount={p.likesCount} />);
+    .map((p) => (
+      <Post key={p.id} message={p.message} likesCount={p.likesCount} />
+    ));
 
   const onSubmit = (value) => {
     props.addPost(value.newPostText);

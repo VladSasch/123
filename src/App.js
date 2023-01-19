@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, Provider } from 'react-redux';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
 
@@ -34,8 +34,20 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (prom) => {
+    alert('Some error occured');
+  };
+
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      'unhandledrejection',
+      this.catchAllUnhandledErrors
+    );
   }
 
   render() {
@@ -78,11 +90,11 @@ let AppContainer = compose(
 const SamuraiJSApp = (props) => {
   return (
     <React.StrictMode>
-      <HashRouter>
+      <BrowserRouter>
         <Provider store={store}>
           <AppContainer />
         </Provider>
-      </HashRouter>
+      </BrowserRouter>
     </React.StrictMode>
   );
 };
