@@ -34,9 +34,9 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends React.Component {
-  catchAllUnhandledErrors = (prom) => {
-    alert('Some error occured');
-  };
+  // catchAllUnhandledErrors = (prom) => {
+  //   alert('Some error occured');
+  // };
 
   componentDidMount() {
     this.props.initializeApp();
